@@ -7,7 +7,7 @@ import { activeCities, activeSvcs, availText, cityBy, cityName, cityOpts, dutyNa
 import { cssv, Ic, Ph, StarIc } from "@/components/art";
 import { Avatar, CityArea, CtaBlock, DemoTag, FaqBlock, Field, Form, InterviewModal, NotFoundView, PageHead, ProCard, QuickEnquiry, ReviewCards, SvcCard, SvcSelect, VerBadge, type Errs } from "@/components/blocks";
 import HeroSlider from "@/components/HeroSlider";
-import { mapsEmbed, mapsLink } from "@/lib/site";
+import { mapsEmbed, mapsLink, PHONE2 } from "@/lib/site";
 
 const groupEntries = () => Object.entries(GROUPS) as [Group, (typeof GROUPS)["maid"]][];
 
@@ -314,7 +314,7 @@ export function ContactView() {
         <button className="btn btn-primary">Send message</button>
       </Form>
       <aside><div className="card pad"><ul className="list-check">
-        <li><Ic n="phone" s={18} /><span><b>Call</b><br /><button className="link" onClick={callNow}>{s.phone || "+91 XXXXX XXXXX"}</button></span></li>
+        <li><Ic n="phone" s={18} /><span><b>Call</b><br /><button className="link" onClick={callNow}>Daksh: {s.phone || "+91 XXXXX XXXXX"}</button><br /><a className="link" href={"tel:" + PHONE2.replace(/[^\d+]/g, "")}>Anita: {PHONE2}</a></span></li>
         <li><Ic n="chat" s={18} /><span><b>WhatsApp</b><br /><button className="link" onClick={() => openWA()}>Chat with us</button></span></li>
         <li><Ic n="mail" s={18} /><span><b>Email</b><br /><a className="link" href={`mailto:${s.email}`}>{s.email}</a></span></li>
         <li><Ic n="map" s={18} /><span><b>Office</b><br />{s.address}<br /><a className="link" href={mapsLink(s.address)} target="_blank" rel="noopener noreferrer">Get directions →</a></span></li>

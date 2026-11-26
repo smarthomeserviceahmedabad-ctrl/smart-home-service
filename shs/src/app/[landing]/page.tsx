@@ -24,8 +24,6 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
   const p = parse(landing); const s = p && SERVICES.find(x => x.slug === p.svc), c = p && CITIES.find(x => x.slug === p.city);
   if (!s || !c) return meta("Home services", "Home services in Gujarat", `/${landing}`, { noindex: true });
   return meta(`${s.name} in ${c.name} — Verified & Interviewed`, `Book verified ${s.name.toLowerCase()} in ${c.name}: ${c.areas.slice(0, 4).join(", ")} and nearby areas. Interview before you hire.`, `/${landing}`);
-  
-  
 }
 
 export default async function Page({ params }: P) {

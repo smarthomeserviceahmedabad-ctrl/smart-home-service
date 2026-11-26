@@ -8,15 +8,19 @@ type P = { params: Promise<{ slug: string }> };
 export const generateStaticParams = () => BLOG_SEED.map(b => ({ slug: b.slug }));
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
+
   const { slug } = await params; const b = BLOG_SEED.find(x => x.slug === slug);
   if (!b) return meta("Article", "Smart Home Service blog", `/blog/${slug}`, { noindex: true });
   return meta(b.title, b.excerpt, `/blog/${b.slug}`, { type: "article" });
+  
 }
 
 export default async function Page({ params }: P) {
+
   const { slug } = await params; const b = BLOG_SEED.find(x => x.slug === slug);
   return <>
     {b && <JsonLd data={[breadcrumbLd([["Blog", "/blog"], [b.title, `/blog/${b.slug}`]]), { "@context": "https://schema.org", "@type": "Article", headline: b.title, description: b.excerpt, datePublished: b.date, author: { "@type": "Organization", name: BRAND }, publisher: { "@type": "Organization", name: BRAND, url: SITE }, mainEntityOfPage: `${SITE}/blog/${b.slug}` }]} />}
     <PostView slug={slug} />
   </>;
+
 }

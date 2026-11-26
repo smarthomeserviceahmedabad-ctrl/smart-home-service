@@ -3,7 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { useRouter } from "next/navigation";
 import { blankBooking, seed, T, today, type Booking, type State } from "./data";
 import { cityName, dutyName, fmtDate, newId, svcName } from "./utils";
-import { PHONE, WHATSAPP } from "./site";
+import { OLD_CONTACT, PHONE, WHATSAPP } from "./site";
 
 // Frontend-only persistence. Everything lives in this browser's localStorage.
 // To add a real backend later, replace load/save and the actions below with API calls.
@@ -66,7 +66,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           // Fill contact details that were saved empty in older versions with the business defaults.
           const st = { ...base.settings, ...(d.settings || {}) };
           for (const k of ["phone", "wa", "email", "address"] as const) if (!st[k]) st[k] = base.settings[k];
-          if (st.address === "Ahmedabad, Gujarat") st.address = base.settings.address; // old placeholder
+          if (st.address === "Ahmedabad, Gujarat" || st.address.includes("Pushpak Apartment")) st.address = base.settings.address; // old address
+          if (st.phone.replace(/\D/g, "").endsWith(OLD_CONTACT.wa.slice(2))) st.phone = base.settings.phone; // old number
+          if (st.wa.replace(/\D/g, "").endsWith(OLD_CONTACT.wa.slice(2))) st.wa = base.settings.wa;
           setS({ ...base, ...d, services, plans, settings: st });
         }
       }

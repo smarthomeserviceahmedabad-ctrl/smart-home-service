@@ -6,7 +6,7 @@ import { DUTY, GROUPS, type Group } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import { activeCities, activeSvcs, cityName, cityOpts, dutyName, ranked, svcName, V } from "@/lib/utils";
 import { Ic, LogoMark, Wordmark } from "./art";
-import { mapsLink } from "@/lib/site";
+import { mapsLink, PHONE2 } from "@/lib/site";
 import { UrgentModal } from "./blocks";
 
 export const NAV: [string, string][] = [["/", "home"], ["/about-us", "about"], ["/services", "services"], ["/find-professionals", "find"], ["/locations", "locations"], ["/how-it-works", "how"], ["/pricing", "pricing"], ["/blog", "blog"], ["/contact-us", "contact"]];
@@ -78,7 +78,8 @@ export function Footer() {
     <div><h4>Cities</h4><ul>{activeCities(S).map(c => <li key={c.slug}><Link href={`/locations/${c.slug}`}>Home services in {c.name}</Link></li>)}</ul></div>
     <div><h4>Quick Links</h4><ul>{([["/about-us", "About Us"], ["/how-it-works", "How It Works"], ["/find-professionals", "Find a Professional"], ["/pricing", "Pricing / Plans"], ["/track", "Track Booking"], ["/staff-registration", "Join as a Professional"], ["/staff-portal", "Staff Login"], ["/blog", "Blog"], ["/admin", "Admin Panel"]] as const).map(([h, l]) => <li key={h}><Link href={h}>{l}</Link></li>)}</ul></div>
     <div><h4>Contact</h4><ul>
-      <li><button className="tb" onClick={callNow}><Ic n="phone" s={15} /> {s.phone || "+91 XXXXX XXXXX"}</button></li>
+      <li><button className="tb" onClick={callNow}><Ic n="phone" s={15} /> {s.phone || "+91 XXXXX XXXXX"} (Daksh)</button></li>
+      <li><a href={"tel:" + PHONE2.replace(/[^\d+]/g, "")}><Ic n="phone" s={15} /> {PHONE2} (Anita)</a></li>
       <li><button className="tb" onClick={() => openWA()}><Ic n="chat" s={15} /> WhatsApp us</button></li>
       <li><a href={`mailto:${s.email}`}><Ic n="mail" s={15} /> {s.email}</a></li>
       <li><a href={mapsLink(s.address)} target="_blank" rel="noopener noreferrer" style={{ display: "flex", gap: 6, alignItems: "flex-start" }}><Ic n="map" s={15} style={{ marginTop: 3 }} /> <span>{s.address}</span></a></li>
