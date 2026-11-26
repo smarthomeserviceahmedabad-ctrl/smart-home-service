@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
 };
+
 export const viewport: Viewport = { themeColor: "#171715", width: "device-width", initialScale: 1 };
 
 const orgLd = {

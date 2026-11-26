@@ -1,5 +1,5 @@
 import photoList from "./photos.json";
-import { ADDRESS, EMAIL, PHONE, WHATSAPP } from "./site";
+import { ADDRESS, EMAIL, HOURS, PHONE, WHATSAPP } from "./site";
 // Seed content and reference data for Smart Home Service.
 // Frontend-only build: this is the starting state; edits made in the admin panel are kept in the browser (see store.tsx).
 
@@ -239,7 +239,7 @@ export const STAFF_SEED = staffSeed();
 export function seed(): State {
   return {
     v: 1, lang: "en",
-    settings: { brand: "Smart Home Service", phone: PHONE, wa: WHATSAPP, email: EMAIL, address: ADDRESS, hours: "Mon–Sun · 8:00 AM – 8:00 PM", availability: "Serving 10 cities across Gujarat", fb: "", ig: "", li: "", yt: "", razorpay: "", notifyEmail: true, notifySms: true, notifyWa: true, adminPin: "admin123", referralCredit: "", urgentNote: "Our team will call back to confirm availability. Same-day placement depends on staff availability in your locality." },
+    settings: { brand: "Smart Home Service", phone: PHONE, wa: WHATSAPP, email: EMAIL, address: ADDRESS, hours: HOURS, availability: "Serving 10 cities across Gujarat", fb: "", ig: "", li: "", yt: "", razorpay: "", notifyEmail: true, notifySms: true, notifyWa: true, adminPin: "admin123", referralCredit: "", urgentNote: "Our team will call back to confirm availability. Same-day placement depends on staff availability in your locality." },
     content: { heroT: "Trusted Home Services. Verified Professionals. Complete Peace of Mind.", heroS: "Find reliable maids, cooks, babysitters, nannies, drivers, and professional home-care staff for your family. Flexible services designed around your lifestyle.", ctaT: "Your Home Deserves the Right Help.", ctaS: "Get reliable household support from verified professionals. Tell us what your family needs, and let our team help you find the right match." },
     stats: { pros: "", families: "", years: "", cities: "", placements: "" },
     services: structuredClone(SERVICES), cities: structuredClone(CITIES), staff: staffSeed(), faqs: structuredClone(FAQS),

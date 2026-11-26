@@ -23,7 +23,8 @@ button.tb{background:none;border:0;color:inherit;font-size:inherit;cursor:pointe
 .soc{display:inline-grid!important;place-items:center;width:24px;height:24px;border-radius:7px;background:rgba(255,255,255,.08);font-size:11px;font-weight:700;color:#dbe4ef}
 .lang-sel{background:rgba(255,255,255,.08);color:#fff;border:0;border-radius:8px;padding:3px 6px;font-size:12px}
 .lang-sel option{color:#000}
-@media(max-width:768px){.topbar .hide-sm{display:none!important}.topbar .container{gap:6px 14px;padding:7px 14px}}
+.tb-hours{color:#f3d27a;font-weight:600}
+@media(max-width:768px){.topbar .hide-sm{display:none!important}.topbar .tb-hours{order:9;flex-basis:100%;font-size:12px}.topbar .container{gap:6px 14px;padding:7px 14px}}
 .urgent-link{color:#e5bc55!important;font-weight:600}
 
 /* Nav */

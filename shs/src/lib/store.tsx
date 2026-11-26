@@ -68,6 +68,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           for (const k of ["phone", "wa", "email", "address"] as const) if (!st[k]) st[k] = base.settings[k];
           if (st.address === "Ahmedabad, Gujarat" || st.address.includes("Pushpak Apartment")) st.address = base.settings.address; // old address
           if (st.phone.replace(/\D/g, "").endsWith(OLD_CONTACT.wa.slice(2))) st.phone = base.settings.phone; // old number
+          if (!st.hours || st.hours === "Mon–Sun · 8:00 AM – 8:00 PM") st.hours = base.settings.hours; // old hours
           if (st.wa.replace(/\D/g, "").endsWith(OLD_CONTACT.wa.slice(2))) st.wa = base.settings.wa;
           setS({ ...base, ...d, services, plans, settings: st });
         }

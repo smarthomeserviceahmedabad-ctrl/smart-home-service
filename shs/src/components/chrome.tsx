@@ -27,7 +27,7 @@ export function Topbar() {
       <button className="tb" onClick={callNow}><Ic n="phone" s={14} /> {s.phone || "+91 XXXXX XXXXX"}</button>
       <button className="tb" onClick={() => openWA()}><Ic n="chat" s={14} /> WhatsApp</button>
       <a className="hide-sm" href={`mailto:${s.email}`}><Ic n="mail" s={14} /> {s.email}</a>
-      <span className="hide-sm"><Ic n="clock" s={14} /> {s.hours}</span>
+      <span className="tb-hours"><Ic n="clock" s={14} /> {s.hours}</span>
     </div>
     <div className="tb-group">
       <span className="hide-sm"><Ic n="map" s={14} /> {s.availability}</span>

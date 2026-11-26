@@ -7,6 +7,10 @@ export const PHONE2 = "+91 87990 56949";       // Anita — second contact numbe
 export const WHATSAPP = "918160735095";         // wa.me number: country code + number, digits only
 /** Old contact values that may still be saved in visitors' browsers; replaced with the ones above on load. */
 export const OLD_CONTACT = { phone: "+91 96363 26949", wa: "919636326949" };
+// Working hours: Ahmedabad morning to evening, all other cities round the clock.
+export const HOURS = "Ahmedabad: Mon–Sun · 8:00 AM – 8:00 PM | Other cities: 24/7";
+/** Service hours for one city's pages. */
+export const cityHours = (slug: string) => slug === "ahmedabad" ? "Mon–Sun · 8:00 AM – 8:00 PM" : "24/7 — day and night, all 7 days";
 export const EMAIL = "smarthomeserviceahmedabad@gmail.com";
 
 // Office address

@@ -7,7 +7,7 @@ import { activeCities, activeSvcs, availText, cityBy, cityName, cityOpts, dutyNa
 import { cssv, Ic, Ph, StarIc } from "@/components/art";
 import { Avatar, CityArea, CtaBlock, DemoTag, FaqBlock, Field, Form, InterviewModal, NotFoundView, PageHead, ProCard, QuickEnquiry, ReviewCards, SvcCard, SvcSelect, VerBadge, type Errs } from "@/components/blocks";
 import HeroSlider from "@/components/HeroSlider";
-import { mapsEmbed, mapsLink, PHONE2 } from "@/lib/site";
+import { cityHours, mapsEmbed, mapsLink, PHONE2 } from "@/lib/site";
 
 const groupEntries = () => Object.entries(GROUPS) as [Group, (typeof GROUPS)["maid"]][];
 
@@ -235,7 +235,7 @@ export function LocationsView() {
   const { startBooking } = useStore();
   return <>
     <PageHead title="Our Locations" sub="Choose your city to see local services and the localities we cover." cr={[[null, "Locations"]]} />
-    <section className="sec"><div className="container"><CityCards big /><div className="note info" style={{ marginTop: 26 }}><Ic n="map" s={18} /><div>Your city isn&apos;t listed? <button className="link" onClick={() => startBooking()}>Send an enquiry</button> — we&apos;re expanding.</div></div></div></section>
+    <section className="sec"><div className="container"><div className="note info" style={{ marginBottom: 26 }}><Ic n="clock" s={18} /><div><b>Service hours:</b> Ahmedabad — Mon–Sun · 8:00 AM – 8:00 PM. All other cities — 24/7, day and night.</div></div><CityCards big /><div className="note info" style={{ marginTop: 26 }}><Ic n="map" s={18} /><div>Your city isn&apos;t listed? <button className="link" onClick={() => startBooking()}>Send an enquiry</button> — we&apos;re expanding.</div></div></div></section>
     <CtaBlock />
   </>;
 }
@@ -247,6 +247,7 @@ export function CityView({ slug }: { slug: string }) {
   return <>
     <PageHead title={`Home Services in ${c.name}`} sub={`Verified maids, cooks, nannies, caregivers and drivers for families across ${c.name} — from ${c.areas[0] || c.name} to ${c.areas[c.areas.length - 1] || c.name}.`} cr={[["/locations", "Locations"], [null, c.name]]} />
     <section className="sec"><div className="container split"><div>
+      <div className="note info" style={{ marginBottom: 26 }}><Ic n="clock" s={18} /><div><b>Service hours in {c.name}:</b> {cityHours(slug)}</div></div>
       <h2>Popular services in {c.name}</h2>
       <div className="grid g2" style={{ marginBottom: 34 }}>{top.map(s => s && <Link key={s.slug} className="card why" href={landingSlug(s.slug, slug)}><span className="wi" style={{ background: GROUPS[s.group].g, color: "#fff" }}><Ic n={GROUPS[s.group].ic} s={20} /></span><div><h4>{s.name} in {c.name}</h4><p>{s.short}</p></div></Link>)}</div>
       <h2>Areas we cover in {c.name}</h2><p className="muted">Click your locality to start a booking.</p>
@@ -265,6 +266,7 @@ export function CityServiceView({ svc, city }: { svc: string; city: string }) {
   return <>
     <PageHead title={`${s.name} in ${c.name}`} sub={`${s.short} Available across ${c.areas.slice(0, 5).join(", ")} and nearby localities in ${c.name}.`} cr={[["/locations", "Locations"], [`/locations/${city}`, c.name], [null, s.name]]} />
     <section className="sec"><div className="container split"><div>
+      <div className="note info" style={{ marginBottom: 22 }}><Ic n="clock" s={18} /><div><b>{s.name} hours in {c.name}:</b> {cityHours(city)}</div></div>
       <Ph group={s.group} cap={`${s.cap} — ${c.name}`} ar="16/8" img={s.img} scene={sceneFor(s)} photo={photoKey(s)} sizes="(max-width: 960px) 100vw, 720px" style={{ borderRadius: 22 }} />
       <h2 style={{ marginTop: 28 }}>Why families in {c.name} book with us</h2>
       <ul className="list-check" style={{ marginBottom: 28 }}>{[`Professionals living in or near ${c.areas.slice(0, 3).join(", ")} — shorter commutes, better punctuality.`, "Language match: Gujarati and Hindi speaking staff, with English where needed.", "Interview in person or on video before you confirm.", "Replacement assistance as per policy."].map(x => <li key={x}><Ic n="check" s={18} sw={2.4} /><span>{x}</span></li>)}</ul>
