@@ -18,7 +18,7 @@ Deploy: push to Vercel (no database needed). Set `NEXT_PUBLIC_SITE_URL` to your 
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number with country code, e.g. `919876543210` (fallback if not set in Admin → Settings) |
 | `NEXT_PUBLIC_PHONE` | Click-to-call number (fallback) |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics 4 ID, e.g. `G-XXXXXXX` (optional) |
-| `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console verification code (optional) |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console verification code (defaults to the site's configured token) |
 
 ## Where things are
 - `src/lib/data.ts` — services, cities, sample staff, FAQs, blog posts, policies, translations (edit here to change site content)
