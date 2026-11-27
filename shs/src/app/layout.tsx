@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: { type: "website", siteName: BRAND, locale: "en_IN" },
   twitter: { card: "summary_large_image" },
   verification: {
-    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || "DC6jvpzWFQBT7ZNnamOGCwTdomEFPOPTlyDWb",
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || "DC6jvpzWFQBT7ZNnamOGCwTdomEFPOPTlyDWbeIp1pA",
   },
 };
 
