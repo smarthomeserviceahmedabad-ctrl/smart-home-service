@@ -15,10 +15,7 @@ export const metadata: Metadata = {
   title: { default: `${BRAND} — Trusted Home Services & Verified Domestic Staff in Gujarat`, template: `%s | ${BRAND}` },
   description: "Book verified maids, cooks, babysitters, japa maids, elderly caretakers, patient attendants and drivers in Ahmedabad, Surat, Vadodara, Rajkot, Gandhinagar and across Gujarat.",
   openGraph: { type: "website", siteName: BRAND, locale: "en_IN" },
-  twitter: { card: "summary_large_image" },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || "DC6jvpzWFQBT7ZNnamOGCwTdomEFPOPTlyDWbeIp1pA",
-  },
+  twitter: { card: "summary_large_image" }
 };
 
 export const viewport: Viewport = { themeColor: "#171715", width: "device-width", initialScale: 1 };
