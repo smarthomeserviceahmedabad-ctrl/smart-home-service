@@ -71,7 +71,11 @@ export function HomeView() {
     </div></section>
 
     <section className="sec sec-white"><div className="container"><div className="sec-head"><span className="eyebrow">Blog</span><h2>Latest guides for families</h2></div><BlogGrid limit={3} /></div></section>
-    <section className="sec"><div className="container"><div className="sec-head"><span className="eyebrow">FAQ</span><h2>Frequently asked questions</h2></div><FaqBlock list={S.faqs} /></div></section>
+    <section className="sec"><div className="container"><div className="sec-head"><span className="eyebrow">About us</span><h2>Smart Home Service — domestic staff agency in Ahmedabad</h2>
+      <p>Smart Home Service, Naranpura, Ahmedabad provides reliable and trained house maids, house servants, cooks, baby sitters, nanny / aaya, japa maids, elder care, patient caretakers, drivers and office boys — hourly, part-time, full-time or 24-hour live-in, across Gujarat.</p></div>
+      <div className="chips" style={{ justifyContent: "center" }}>{["maid-service", "house-maid", "servant-service", "live-in-maid", "cook-service", "babysitter", "nanny", "japa-maid", "elderly-care", "patient-care", "driver", "office-boy"].map(k => { const s = svcBy(S, k); return s && <Link key={k} className="chip click" href={`/${k}-in-ahmedabad`}>{s.name} in Ahmedabad</Link>; })}</div>
+    </div></section>
+    <section className="sec sec-white"><div className="container"><div className="sec-head"><span className="eyebrow">FAQ</span><h2>Frequently asked questions</h2></div><FaqBlock list={S.faqs} /></div></section>
     <CtaBlock />
   </>;
 }
