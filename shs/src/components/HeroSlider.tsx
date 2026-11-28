@@ -32,7 +32,7 @@ export default function HeroSlider() {
         <div className="hs-deco" />
         <div className="container hs-inner">
           <div className="hs-text">
-            <span className="eyebrow" style={{ color: "#7fe3cc" }}>{x.eyebrow}</span>
+            <span className="eyebrow" style={{ color: "#ffd84d" }}>{x.eyebrow}</span>
             <H className="hs-title">{T0 ? t("heroT") : <Hi text={x.title} />}</H>
             <p className="lead">{T0 ? t("heroS") : x.sub}</p>
             <div className="hero-cta"><button className="btn btn-primary" onClick={() => slideGo(x.link)} tabIndex={k === cur ? 0 : -1}>{x.cta || t("book")} <Ic n="arrow" s={16} /></button><button className="btn btn-light" onClick={() => go("/services")} tabIndex={k === cur ? 0 : -1}>{t("explore")}</button></div>

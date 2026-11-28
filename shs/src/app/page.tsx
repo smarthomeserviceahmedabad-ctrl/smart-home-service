@@ -3,8 +3,8 @@ import { meta, JsonLd, faqLd } from "@/lib/seo";
 import { FAQS } from "@/lib/data";
 
 export const metadata = {
-  ...meta("Trusted Maids, Cooks, Babysitters & Caregivers in Gujarat", "Book verified maids, cooks, babysitters, japa maids, elderly caretakers and drivers in Ahmedabad, Surat, Vadodara and across Gujarat. Interview before you hire.", "/"),
-  title: { absolute: "Smart Home Service — Trusted Home Services & Verified Domestic Staff in Gujarat" },
+  ...meta("Smart Home Service Ahmedabad — Maid, Cook, Baby Sitter, Elder Care & Driver", "Smart Home Service, Naranpura, Ahmedabad: verified house maids, servants, cooks, baby sitters, nanny/aaya, elder care, patient caretakers, drivers & office boys. Interview before you hire. Call +91 81607 35095.", "/"),
+  title: { absolute: "Smart Home Service Ahmedabad | Maid, Cook, Baby Sitter, Elder Care & Driver Agency" },
 };
 
 export default function Page() {

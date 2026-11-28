@@ -1,4 +1,5 @@
-export const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+// Falls back to the live domain so canonical URLs and the sitemap never point at localhost in production.
+export const SITE = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.smarthomeservice.org").replace(/\/$/, "");
 export const BRAND = "Smart Home Service";
 
 // Business contact details (also editable in Admin → Settings).
